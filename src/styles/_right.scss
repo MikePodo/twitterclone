@@ -1,12 +1,14 @@
 .right-container {
-  height: 100vh;
   flex: 1;
   position: sticky;
-  top: 0;
+  top: 0rem;
+  height: 100vh;
   border-left: 1px solid rgb(202, 202, 202);
+  overflow: scroll;
 }
 
 .right {
+  height: 100vh;
   width: 60%;
   padding: 1rem;
 }
@@ -139,10 +141,12 @@
 }
 
 .extras {
-  width: 50%;
+  width: 100%;
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
+
   p {
     color: gray;
     padding-right: 1rem;

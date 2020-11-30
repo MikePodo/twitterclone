@@ -33,12 +33,12 @@ const Left = () => {
             <h2>More</h2>
           </div>
           <button className="twitter-button">Tweet</button>
-        </div>
-        <div className="profile">
-          <div className="profile-pic"></div>
-          <div className="username">
-            <h2>Username</h2>
-            <h3>@username</h3>
+          <div className="profile">
+            <div className="profile-pic"></div>
+            <div className="username">
+              <h2>Username</h2>
+              <h3>@username</h3>
+            </div>
           </div>
         </div>
       </div>

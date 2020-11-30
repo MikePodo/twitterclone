@@ -9,6 +9,8 @@
   margin-left: auto;
   width: 50%;
   right: 0;
+  height: 100vh;
+  position: relative;
 }
 
 .bird {
@@ -21,8 +23,8 @@
 }
 
 .nav {
-  height: 75vh;
-
+  height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -57,10 +59,11 @@
 }
 
 .profile {
-  margin-top: 10rem;
+  position: absolute;
+  bottom: 0px;
   display: flex;
   padding: 1rem;
-  width: 50%;
+  width: 100%;
 
   h3 {
     color: grey;

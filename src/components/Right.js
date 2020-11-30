@@ -77,14 +77,14 @@ const Right = () => {
             <h3>Show More</h3>
           </div>
         </div>
-      </div>
-      <div className="extras">
-        <p>Terms of Service</p>
-        <p>Privacy Policy</p>
-        <p>Cookie Policy</p>
-        <p>Ads info</p>
-        <p>More...</p>
-        <p>&copy; 2020 Twitter, Inc.</p>
+        <div className="extras">
+          <p>Terms of Service</p>
+          <p>Privacy Policy</p>
+          <p>Cookie Policy</p>
+          <p>Ads info</p>
+          <p>More...</p>
+          <p>&copy; 2020 Twitter, Inc.</p>
+        </div>
       </div>
     </div>
   );
