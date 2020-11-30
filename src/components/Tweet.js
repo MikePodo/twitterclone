@@ -1,5 +1,3 @@
-import react from "react";
-
 const Tweet = () => {
   return (
     <div className="tweet-container">
