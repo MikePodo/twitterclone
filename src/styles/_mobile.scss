@@ -1,0 +1,135 @@
+@media screen and (max-width: 1470px) {
+  .nav {
+    width: 100%;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .left-container {
+    flex: 1;
+  }
+  .right-container {
+    flex: 1;
+  }
+  .main {
+    flex: 2;
+  }
+}
+
+@media screen and (max-width: 888px) {
+  html {
+    font-size: 70%;
+  }
+  .happening-right-img {
+    display: none;
+  }
+  .followperson {
+    flex-direction: column;
+  }
+  .follow-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    button {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .left-container {
+    transform: translateX(-120%);
+    position: absolute;
+  }
+  .right-container {
+    transform: translateX(120%);
+    position: absolute;
+    display: none;
+  }
+  .right-container-active {
+    transform: translateX(0);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+  }
+  .left-container-active {
+    transform: translateX(0%);
+    width: 100%;
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    .x {
+      top: 3%;
+      right: 10%;
+      position: absolute;
+      cursor: pointer;
+      .line1 {
+        width: 30px;
+        height: 5px;
+        background: black;
+        transform: rotateZ(45deg);
+        position: absolute;
+      }
+      .line2 {
+        width: 30px;
+        height: 5px;
+        background: black;
+        transform: rotateZ(-45deg);
+        position: absolute;
+      }
+    }
+  }
+  .x-right {
+    top: 3%;
+    right: 10%;
+    position: absolute;
+
+    cursor: pointer;
+    .line1 {
+      width: 30px;
+      height: 5px;
+      background: black;
+      transform: rotateZ(45deg);
+      position: absolute;
+    }
+    .line2 {
+      width: 30px;
+      height: 5px;
+      background: black;
+      transform: rotateZ(-45deg);
+      position: absolute;
+    }
+  }
+
+  .main {
+    flex: 1;
+  }
+  .main-disabled {
+    display: none;
+  }
+  .twitter-button {
+    width: 50%;
+  }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    background: white;
+
+    .nav-divs {
+      display: block;
+    }
+    .open-search {
+      display: block;
+    }
+  }
+  .right {
+    width: 70%;
+  }
+}

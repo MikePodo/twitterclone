@@ -1,9 +1,21 @@
 import React from "react";
 
-const Right = () => {
+const Right = ({ rightStatus, setRightStatus }) => {
   return (
-    <div className="right-container">
+    <div
+      className={`${
+        rightStatus ? "right-container-active" : "right-container"
+      }`}
+    >
       <div className="right">
+        <div
+          onClick={() => setRightStatus(!rightStatus)}
+          className={`${rightStatus ? "x-right" : ""}`}
+        >
+          <div className="line1"></div>
+          <div className="line2"></div>
+        </div>
+
         <input
           placeholder="Search Twitter"
           className="right-textarea"

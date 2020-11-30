@@ -2,10 +2,23 @@ import React from "react";
 //Components
 import Tweet from "./Tweet";
 
-const Main = () => {
+const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
   return (
-    <div className="main">
-      <h1 className="home">Home</h1>
+    <div className={`${leftStatus || rightStatus ? "main-disabled" : "main"}`}>
+      <div className="header-nav">
+        <div onClick={() => setLeftStatus(!leftStatus)} className="nav-divs">
+          <div className="nav-div"></div>
+          <div className="nav-div"></div>
+          <div className="nav-div third"></div>
+        </div>
+        <h1>Home</h1>
+        <div
+          onClick={() => setRightStatus(!rightStatus)}
+          className="open-search"
+        >
+          Search
+        </div>
+      </div>
       <div className="whats-happening">
         <div className="whats-happening-top">
           <div className="profile-pic-main"></div>

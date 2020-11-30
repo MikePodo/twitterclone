@@ -1,12 +1,21 @@
 import React from "react";
 
-const Left = () => {
+const Left = ({ leftStatus, setLeftStatus }) => {
   return (
-    <div className="left-container">
+    <div
+      className={`${leftStatus ? "left-container-active" : "left-container"}`}
+    >
       <div className="left">
         <div className="nav">
           <div className="logo">
             <div className="bird"></div>
+          </div>
+          <div
+            onClick={() => setLeftStatus(!leftStatus)}
+            className={`${leftStatus ? "x" : ""}`}
+          >
+            <div className="line1"></div>
+            <div className="line2"></div>
           </div>
           <div className="option">
             <h2>Home</h2>
