@@ -1,0 +1,52 @@
+.tweet-container {
+  background: white;
+  border-top: 1px solid rgb(202, 202, 202);
+}
+.tweet {
+  width: 95%;
+  margin: auto;
+  padding: 1rem 0rem;
+}
+
+.profile-pic-tweet {
+  width: 50px;
+  height: 50px;
+  background: rgb(139, 78, 78);
+  border-radius: 50%;
+  display: block;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    margin-left: 1rem;
+  }
+  h4 {
+    margin-left: 1rem;
+    color: gray;
+  }
+  p {
+    margin-left: 1rem;
+    color: gray;
+  }
+}
+
+.tweet-content {
+  margin-left: 4rem;
+}
+
+.tweet-image {
+  width: 90%;
+  height: 12rem;
+  background: rgb(133, 52, 52);
+  border-radius: 1rem;
+}
+
+.tweet-bottom {
+  display: flex;
+
+  justify-content: space-around;
+  color: gray;
+}

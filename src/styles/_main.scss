@@ -1,0 +1,75 @@
+.main {
+  min-height: 100vh;
+  overflow: scroll;
+  flex: 1.2;
+  background: rgb(236, 236, 236);
+}
+
+.home {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  background: white;
+}
+
+.profile-pic-main {
+  width: 50px;
+  height: 50px;
+  background: gray;
+  border-radius: 50%;
+}
+
+.whats-happening {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  background: white;
+}
+
+.whats-happening-top {
+  width: 95%;
+  margin: auto;
+  padding-top: 1rem;
+  display: flex;
+}
+.happening-textarea {
+  height: 2.5rem;
+  margin: auto 0;
+  margin-left: 1rem;
+  width: 80%;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.whats-happening-bottom {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background: rgb(31, 167, 230);
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    border-radius: 40px;
+  }
+}
+
+.happening-icon {
+  height: 25px;
+  width: 25px;
+  border: 3px solid rgb(31, 167, 230);
+  border-radius: 50%;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.happening-icons {
+  display: flex;
+}
+
+.gap {
+  height: 1vh;
+}

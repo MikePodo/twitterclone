@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scrollbar-width: none;
+}
+
+.App {
+  display: flex;
+}
+
+@import "left";
+@import "right";
+@import "main";
+@import "tweet";

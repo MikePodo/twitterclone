@@ -1,0 +1,79 @@
+.left-container {
+  height: 100vh;
+  flex: 1;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.left {
+  margin-left: auto;
+  width: 50%;
+  right: 0;
+}
+
+.bird {
+  height: 30px;
+  width: 30px;
+  background: rgb(31, 167, 230);
+  margin: 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav {
+  height: 75vh;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: 2rem;
+  font-size: 1rem;
+}
+
+.option {
+  margin: 0.7rem;
+  width: 60%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: rgba(154, 226, 255, 0.137);
+  border-radius: 20px;
+}
+
+.twitter-button {
+  background: rgb(31, 167, 230);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.twitter-button:hover {
+  background: rgb(28, 145, 199);
+}
+
+.profile {
+  margin-top: 10rem;
+  display: flex;
+  padding: 1rem;
+  width: 50%;
+
+  h3 {
+    color: grey;
+  }
+}
+.username {
+  padding-left: 5rem;
+}
+
+.profile-pic {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: gray;
+  border-radius: 50%;
+}

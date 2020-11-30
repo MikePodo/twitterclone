@@ -1,0 +1,154 @@
+.right-container {
+  height: 100vh;
+  flex: 1;
+  position: sticky;
+  top: 0;
+  border-left: 1px solid rgb(202, 202, 202);
+}
+
+.right {
+  width: 60%;
+  padding: 1rem;
+}
+
+.right-textarea {
+  width: 100%;
+  height: 3vh;
+  background: rgb(236, 236, 236);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 40px;
+  font-size: 1rem;
+}
+
+.whats-happening-right {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.whats-happening-header {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  background: rgba(245, 245, 245, 0.616);
+  h2 {
+    padding: 0.5rem;
+  }
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.happening-right {
+  background: rgba(245, 245, 245, 0.616);
+  h3 {
+    color: gray;
+    font-size: 1rem;
+  }
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  cursor: pointer;
+}
+.happening-right:hover {
+  background: rgb(236, 236, 236);
+}
+
+.happening-right-content {
+  padding: 0.5rem;
+  width: 80%;
+}
+
+.happening-right-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+  background: rgb(132, 156, 93);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.showmore {
+  background: rgba(245, 245, 245, 0.616);
+  padding: 0.5rem;
+  color: rgb(31, 167, 230);
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.showmore:hover {
+  background: rgb(236, 236, 236);
+}
+
+.follow-header {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  background: rgba(245, 245, 245, 0.616);
+  h2 {
+    padding: 0.5rem;
+  }
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.followperson {
+  background: rgba(245, 245, 245, 0.616);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.followperson:hover {
+  background: rgb(236, 236, 236);
+}
+
+.followpic-div {
+  flex: 1;
+}
+.followpic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgb(223, 148, 148);
+}
+
+.followuser {
+  flex: 3;
+  h4 {
+    color: gray;
+  }
+}
+
+.follow-btn {
+  flex: 1;
+  button {
+    border: 1px solid rgb(31, 167, 230);
+    color: rgb(31, 167, 230);
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  button:hover {
+    background: rgb(31, 167, 230);
+    border: none;
+    color: white;
+  }
+}
+
+.extras {
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  p {
+    color: gray;
+    padding-right: 1rem;
+    cursor: pointer;
+  }
+  p:hover {
+    text-decoration: underline;
+  }
+}
