@@ -1,6 +1,7 @@
 .main {
   min-height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   flex: 1.2;
   background: rgb(236, 236, 236);
 }

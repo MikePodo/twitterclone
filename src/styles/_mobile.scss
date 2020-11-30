@@ -42,22 +42,46 @@
 
 @media screen and (max-width: 600px) {
   .left-container {
-    transform: translateX(-120%);
     position: absolute;
+    opacity: 0;
+    pointer-events: none;
   }
   .right-container {
-    transform: translateX(120%);
     position: absolute;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
   }
   .right-container-active {
-    transform: translateX(0);
+    animation: slide-right 0.5s ease;
     position: absolute;
     display: flex;
     justify-content: center;
+    transition: translate 1s ease-in-out;
+    pointer-events: all;
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-left {
+    0% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
   }
   .left-container-active {
-    transform: translateX(0%);
+    animation: slide-left 0.5s ease;
     width: 100%;
     position: relative;
     top: 0;

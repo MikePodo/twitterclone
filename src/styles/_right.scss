@@ -4,7 +4,8 @@
   top: 0rem;
   height: 100vh;
   border-left: 1px solid rgb(202, 202, 202);
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .right {
