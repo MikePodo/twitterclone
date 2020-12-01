@@ -7,9 +7,6 @@
 }
 
 .header-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   padding: 0.5rem;
   border-bottom: 1px solid rgb(202, 202, 202);
   background: white;
@@ -28,6 +25,9 @@
     border: 1px solid black;
     padding: 0.5rem;
     display: none;
+  }
+  h1 {
+    font-weight: 1000;
   }
 }
 
@@ -79,11 +79,9 @@
 }
 
 .happening-icon {
-  height: 25px;
-  width: 25px;
-  border: 3px solid rgb(31, 167, 230);
-  border-radius: 50%;
-  margin: 0.5rem;
+  color: rgb(31, 167, 230);
+  transform: scale(1.75);
+  margin: 1rem;
   cursor: pointer;
 }
 .happening-icons {

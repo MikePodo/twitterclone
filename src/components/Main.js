@@ -1,7 +1,11 @@
 import React from "react";
 //Components
 import Tweet from "./Tweet";
-
+//Icons
+import { HiOutlinePhotograph } from "react-icons/hi";
+import { RiFileGifLine } from "react-icons/ri";
+import { BiPoll, BiSmile } from "react-icons/bi";
+import { AiOutlineCalendar } from "react-icons/ai";
 const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
   return (
     <div className={`${leftStatus || rightStatus ? "main-disabled" : "main"}`}>
@@ -30,11 +34,11 @@ const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
         </div>
         <div className="whats-happening-bottom">
           <div className="happening-icons">
-            <div className="happening-icon"></div>
-            <div className="happening-icon"></div>
-            <div className="happening-icon"></div>
-            <div className="happening-icon"></div>
-            <div className="happening-icon"></div>
+            <HiOutlinePhotograph className="happening-icon" />
+            <RiFileGifLine className="happening-icon" />
+            <BiPoll className="happening-icon" />
+            <BiSmile className="happening-icon" />
+            <AiOutlineCalendar className="happening-icon" />
           </div>
           <button>Tweet</button>
         </div>

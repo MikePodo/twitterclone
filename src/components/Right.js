@@ -1,5 +1,6 @@
 import React from "react";
-
+//Icons
+import { FaSearch } from "react-icons/fa";
 const Right = ({ rightStatus, setRightStatus }) => {
   return (
     <div
@@ -15,12 +16,15 @@ const Right = ({ rightStatus, setRightStatus }) => {
           <div className="line1"></div>
           <div className="line2"></div>
         </div>
+        <div className="textarea">
+          <FaSearch className="search" />
+          <input
+            placeholder="Search Twitter"
+            className="right-textarea"
+            type="textarea"
+          ></input>
+        </div>
 
-        <input
-          placeholder="Search Twitter"
-          className="right-textarea"
-          type="textarea"
-        ></input>
         <div className="whats-happening-right">
           <div className="whats-happening-header">
             <h2>What's Happening</h2>

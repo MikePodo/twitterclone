@@ -5,7 +5,7 @@ const Tweet = () => {
         <div className="user">
           <div className="profile-pic-tweet"></div>
           <h3>User </h3>
-          <h4> @user </h4>
+          <h4>@user</h4>
           <p> • 10m</p>
         </div>
         <div className="tweet-content">

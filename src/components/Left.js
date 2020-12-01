@@ -1,5 +1,7 @@
 import React from "react";
+//Fontawesome
 
+import { FaTwitter } from "react-icons/fa";
 const Left = ({ leftStatus, setLeftStatus }) => {
   return (
     <div
@@ -7,8 +9,8 @@ const Left = ({ leftStatus, setLeftStatus }) => {
     >
       <div className="left">
         <div className="nav">
-          <div className="logo">
-            <div className="bird"></div>
+          <div>
+            <FaTwitter className="logo" />
           </div>
           <div
             onClick={() => setLeftStatus(!leftStatus)}

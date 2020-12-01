@@ -14,6 +14,19 @@
   padding: 1rem;
 }
 
+.search {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+  pointer-events: none;
+  color: #a2a2a2;
+}
+.textarea {
+  position: relative;
+}
+
 .right-textarea {
   width: 100%;
   height: 3vh;
@@ -22,6 +35,11 @@
   padding: 1.5rem;
   border-radius: 40px;
   font-size: 1rem;
+  padding-left: 12%;
+  &:focus {
+    border: 2px solid rgb(31, 167, 230);
+    background: white;
+  }
 }
 
 .whats-happening-right {

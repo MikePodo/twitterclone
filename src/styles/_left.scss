@@ -5,6 +5,14 @@
   top: 0;
   border-right: 1px solid rgb(202, 202, 202);
 }
+
+.logo {
+  color: rgb(31, 167, 230);
+  transform: scale(2);
+  margin: 1rem;
+  cursor: pointer;
+}
+
 .left {
   margin-left: auto;
   width: 50%;
