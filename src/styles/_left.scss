@@ -4,6 +4,7 @@
   position: sticky;
   top: 0;
   border-right: 1px solid rgb(202, 202, 202);
+  overflow-y: scroll;
 }
 
 .logo {
@@ -21,17 +22,9 @@
   position: relative;
 }
 
-.bird {
-  height: 30px;
-  width: 30px;
-  background: rgb(31, 167, 230);
-  margin: 0.7rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .nav {
   height: 100vh;
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -45,11 +38,21 @@
   width: 60%;
   padding: 0.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  h2 {
+    margin-left: 10%;
+  }
 }
 
 .option:hover {
   background: rgba(154, 226, 255, 0.137);
   border-radius: 20px;
+}
+
+.option-icon {
+  transform: scale(2);
+  min-width: 50px;
 }
 
 .twitter-button {
@@ -58,6 +61,7 @@
   color: white;
   font-size: 1.5rem;
   margin: 1rem;
+
   padding: 1rem;
   border-radius: 40px;
   cursor: pointer;
@@ -67,12 +71,13 @@
 }
 
 .profile {
-  position: absolute;
-  bottom: 0px;
+  margin-top: auto;
   display: flex;
   padding: 1rem;
   width: 100%;
-
+  h2 {
+    font-weight: 600;
+  }
   h3 {
     color: grey;
   }
