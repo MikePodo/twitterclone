@@ -1,24 +1,44 @@
-const Tweet = ({ tweet }) => {
+import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
+import { FaRetweet, FaRegHeart } from "react-icons/fa";
+const Tweet = ({ tweet, randomTweet, color }) => {
+  const Chance = require("chance");
+  const chance = new Chance();
+
   return (
     <div className="tweet-container">
       <div className="tweet">
         <div className="user">
-          <div className="profile-pic-tweet"></div>
+          <div style={color} className="profile-pic-tweet"></div>
           <h3>User</h3>
           <h4>@user</h4>
           <p> • 10m</p>
         </div>
         <div className="tweet-content">
-          <p>{tweet}</p>
+          <p>
+            {tweet}
+            {randomTweet}
+          </p>
           <br />
-          <div className="tweet-image"></div>
+          <div className="tweet-image" style={color}></div>
         </div>
         <br />
         <div className="tweet-bottom">
-          <p>80</p>
-          <p>168</p>
-          <p>1.6k</p>
-          <p>Upload</p>
+          <p>
+            <RiChat3Line className="tweet-icon" />
+            {Math.floor(Math.random() * 500)}
+          </p>
+          <p>
+            <FaRetweet className="tweet-icon" />
+            {Math.floor(Math.random() * 1000)}
+          </p>
+          <p>
+            <FaRegHeart className="tweet-icon" />
+            {chance.floating({ min: 1, max: 50, fixed: 1 })}k
+          </p>
+          <p>
+            {" "}
+            <RiUpload2Line className="tweet-icon" />
+          </p>
         </div>
       </div>
     </div>
