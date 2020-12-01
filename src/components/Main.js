@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 //Components
 import Tweet from "./Tweet";
 //Icons
@@ -6,7 +6,21 @@ import { HiOutlinePhotograph } from "react-icons/hi";
 import { RiFileGifLine } from "react-icons/ri";
 import { BiPoll, BiSmile } from "react-icons/bi";
 import { AiOutlineCalendar } from "react-icons/ai";
-const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
+const Main = ({
+  tweetList,
+  setTweetList,
+  leftStatus,
+  setLeftStatus,
+  rightStatus,
+  setRightStatus,
+  tweetInput,
+  tweetButton,
+}) => {
+  const tweetHandler = () => {
+    setTweetList([tweetInput.current.value, ...tweetList]);
+    tweetInput.current.value = "";
+  };
+
   return (
     <div className={`${leftStatus || rightStatus ? "main-disabled" : "main"}`}>
       <div className="header-nav">
@@ -30,6 +44,7 @@ const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
             placeholder="What's happening?"
             className="happening-textarea"
             type="textarea"
+            ref={tweetInput}
           ></input>
         </div>
         <div className="whats-happening-bottom">
@@ -40,17 +55,15 @@ const Main = ({ leftStatus, setLeftStatus, rightStatus, setRightStatus }) => {
             <BiSmile className="happening-icon" />
             <AiOutlineCalendar className="happening-icon" />
           </div>
-          <button>Tweet</button>
+          <button ref={tweetButton} onClick={tweetHandler}>
+            Tweet
+          </button>
         </div>
       </div>
       <div className="gap"></div>
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
+      {tweetList.map((tweet) => (
+        <Tweet tweet={tweet} key={Math.random() * 1000} />
+      ))}
     </div>
   );
 };

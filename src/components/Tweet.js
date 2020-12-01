@@ -1,20 +1,15 @@
-const Tweet = () => {
+const Tweet = ({ tweet }) => {
   return (
     <div className="tweet-container">
       <div className="tweet">
         <div className="user">
           <div className="profile-pic-tweet"></div>
-          <h3>User </h3>
+          <h3>User</h3>
           <h4>@user</h4>
           <p> • 10m</p>
         </div>
         <div className="tweet-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus eaque beatae voluptate magnam rerum maxime! Odit ea
-            maxime mollitia eveniet! Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Minima, quis.
-          </p>
+          <p>{tweet}</p>
           <br />
           <div className="tweet-image"></div>
         </div>
