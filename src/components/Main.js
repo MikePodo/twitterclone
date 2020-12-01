@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 //Components
 import Tweet from "./Tweet";
 //Icons
@@ -27,14 +27,14 @@ const Main = ({
         <div onClick={() => setLeftStatus(!leftStatus)} className="nav-divs">
           <div className="nav-div"></div>
           <div className="nav-div"></div>
-          <div className="nav-div third"></div>
+          <div className="nav-div"></div>
         </div>
         <h1>Home</h1>
         <div
           onClick={() => setRightStatus(!rightStatus)}
           className="open-search"
         >
-          Search
+          Search &gt;
         </div>
       </div>
       <div className="whats-happening">
@@ -63,7 +63,7 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
-          color={{ backgroundColor: "rgb(47, 156, 172)" }}
+          color={{ backgroundColor: "rgb(35, 115, 128)" }}
           tweet={tweet}
           key={Math.random() * 1000}
         />
