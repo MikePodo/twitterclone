@@ -1,9 +1,25 @@
+import React, { useState } from "react";
+//Icons
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
+import { AiFillHeart } from "react-icons/ai";
 
 const Tweet = ({ tweet, randomTweet, color, tweetRandom }) => {
   const Chance = require("chance");
   const chance = new Chance();
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  const likeHandler = () => {
+    setIsLiked(!isLiked);
+  };
+
+  let like;
+  isLiked
+    ? (like = (
+        <AiFillHeart onClick={likeHandler} className="tweet-icon filled" />
+      ))
+    : (like = <FaRegHeart onClick={likeHandler} className="tweet-icon" />);
 
   return (
     <div className="tweet-container">
@@ -34,7 +50,7 @@ const Tweet = ({ tweet, randomTweet, color, tweetRandom }) => {
             {Math.floor(Math.random() * 1000)}
           </p>
           <p>
-            <FaRegHeart className="tweet-icon" />
+            {like}
             {chance.floating({ min: 1, max: 50, fixed: 1 })}k
           </p>
           <p>
