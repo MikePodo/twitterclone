@@ -1,7 +1,7 @@
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
 
-const Tweet = ({ tweet, randomTweet, color, date }) => {
+const Tweet = ({ tweet, randomTweet, color, tweetRandom }) => {
   const Chance = require("chance");
   const chance = new Chance();
 
@@ -27,7 +27,7 @@ const Tweet = ({ tweet, randomTweet, color, date }) => {
         <div className="tweet-bottom">
           <p>
             <RiChat3Line className="tweet-icon" />
-            {Math.floor(Math.random() * 500)}
+            {tweetRandom}
           </p>
           <p>
             <FaRetweet className="tweet-icon" />

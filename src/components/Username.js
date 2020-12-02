@@ -1,11 +1,8 @@
 import React from "react";
 
-const Username = ({ userPopup, userPopupDiv }) => {
+const Username = ({ userPopup }) => {
   return (
-    <div
-      className={`${userPopup ? "username-popup-active" : "username-popup"}`}
-      ref={userPopupDiv}
-    >
+    <div className={`username-popup ${userPopup ? "active" : ""}`}>
       <div className="profile-pic-popup"></div>
       <div className="name-popup">
         <h2>Username</h2>

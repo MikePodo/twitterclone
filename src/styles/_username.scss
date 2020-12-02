@@ -1,8 +1,9 @@
-.username-popup-active {
+.username-popup {
   box-shadow: 1px 1px 10px rgb(200, 200, 200);
   border-radius: 10px;
   position: fixed;
-
+  pointer-events: none;
+  position: fixed;
   width: 25rem;
   z-index: 10;
   bottom: 11%;
@@ -16,24 +17,13 @@
     color: grey;
     margin-bottom: 0.5rem;
   }
-  animation: FadeIn 0.5s alternate ease-in-out;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
-@keyframes FadeIn {
-  0% {
-    opacity: 0;
-    visibility: visible;
-    pointer-events: all;
-  }
-  100% {
-    opacity: 100;
-  }
-}
-
-.username-popup {
-  visibility: hidden;
-  pointer-events: none;
-  position: fixed;
+.active {
+  opacity: 100;
+  pointer-events: all;
 }
 
 .name-popup {

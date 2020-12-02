@@ -63,6 +63,7 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
+          tweetRandom={Math.floor(Math.random() * 500)}
           color={{ backgroundColor: "rgb(35, 115, 128)" }}
           tweet={tweet}
           key={Math.random() * 1000}

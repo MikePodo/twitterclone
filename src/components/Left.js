@@ -25,8 +25,9 @@ const Left = ({
     }, 10);
   };
 
-  const popupHandler = () => {
+  const popupHandler = (e) => {
     setUserPopup(!userPopup);
+    e.preventDefault();
   };
 
   return (
@@ -82,7 +83,12 @@ const Left = ({
             Tweet
           </button>
 
-          <div className="profile" onClick={popupHandler}>
+          <div
+            className="profile"
+            onClick={(e) => {
+              popupHandler(e);
+            }}
+          >
             <div className="profile-pic"></div>
             <div className="username">
               <h2>Username</h2>
