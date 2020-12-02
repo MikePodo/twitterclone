@@ -17,7 +17,7 @@
   .main {
     flex: 2;
   }
-  .username-popup-active {
+  .username-popup {
     left: 1%;
     .name-popup {
       padding: 0.5rem 0rem;
@@ -31,6 +31,10 @@
   }
   .profile {
     width: 100%;
+  }
+
+  .active {
+    left: 1%;
   }
 }
 
@@ -63,7 +67,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .left-container {
     position: absolute;
     opacity: 0;
