@@ -1,0 +1,88 @@
+.username-popup-active {
+  box-shadow: 1px 1px 10px rgb(200, 200, 200);
+  border-radius: 10px;
+  position: fixed;
+
+  width: 25rem;
+  z-index: 10;
+  bottom: 11%;
+  left: 16%;
+  background: white;
+  h2 {
+    font-weight: 600;
+    padding-top: 0.5rem;
+  }
+  h3 {
+    color: grey;
+    margin-bottom: 0.5rem;
+  }
+  animation: FadeIn 0.5s alternate ease-in-out;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    visibility: visible;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.username-popup {
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+}
+
+.name-popup {
+  padding-left: 6rem;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.profile-popup {
+  h2 {
+    font-weight: 600;
+    padding-top: 0.5rem;
+  }
+  h3 {
+    color: grey;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.profile-pic-popup {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: gray;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  top: 7%;
+}
+
+.add-account {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  h3 {
+    color: black;
+    padding: 1rem 1rem;
+    margin-bottom: 0;
+  }
+  cursor: pointer;
+}
+.logout {
+  h3 {
+    color: black;
+    padding: 1rem 1rem;
+    margin-bottom: 0;
+  }
+  cursor: pointer;
+}
+
+.add-account:hover {
+  background: rgba(154, 226, 255, 0.137);
+}
+.logout:hover {
+  background: rgba(154, 226, 255, 0.137);
+}

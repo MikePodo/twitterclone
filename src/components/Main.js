@@ -68,6 +68,7 @@ const Main = ({
           key={Math.random() * 1000}
         />
       ))}
+
       <Tweet
         randomTweet={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente veniam ipsa sit ratione voluptas magni eius quod hic modi nam."

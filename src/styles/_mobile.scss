@@ -1,4 +1,4 @@
-@media screen and (max-width: 1470px) {
+@media screen and (max-width: 1513px) {
   .nav {
     width: 100%;
   }
@@ -16,6 +16,21 @@
   }
   .main {
     flex: 2;
+  }
+  .username-popup-active {
+    left: 1%;
+    .name-popup {
+      padding: 0.5rem 0rem;
+      h2 {
+        padding-left: 6rem;
+      }
+      h3 {
+        padding-left: 6rem;
+      }
+    }
+  }
+  .profile {
+    width: 100%;
   }
 }
 
@@ -36,6 +51,14 @@
     justify-content: center;
     button {
       width: 80%;
+    }
+  }
+  .username {
+    h2 {
+      padding-left: 1rem;
+    }
+    h3 {
+      padding-left: 1rem;
     }
   }
 }

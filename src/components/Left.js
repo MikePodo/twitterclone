@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+//components
+
 //Icons
 import { FaTwitter } from "react-icons/fa";
 import { RiHome7Fill, RiFileList2Line } from "react-icons/ri";
@@ -6,14 +8,27 @@ import { BiHash, BiBell } from "react-icons/bi";
 import { FiMail } from "react-icons/fi";
 import { BsBookmark } from "react-icons/bs";
 import { CgProfile, CgMoreO } from "react-icons/cg";
-const Left = ({ leftStatus, setLeftStatus, tweetInput }) => {
+const Left = ({
+  leftStatus,
+  setLeftStatus,
+  tweetInput,
+  profile,
+  setUserPopup,
+  userPopup,
+}) => {
   const leftContainer = useRef();
+
   const tweetFocus = () => {
     setLeftStatus(false);
     setTimeout(() => {
       tweetInput.current.focus();
     }, 10);
   };
+
+  const popupHandler = () => {
+    setUserPopup(!userPopup);
+  };
+
   return (
     <div
       ref={leftContainer}
@@ -66,7 +81,8 @@ const Left = ({ leftStatus, setLeftStatus, tweetInput }) => {
           <button onClick={tweetFocus} className="twitter-button">
             Tweet
           </button>
-          <div className="profile">
+
+          <div className="profile" onClick={popupHandler}>
             <div className="profile-pic"></div>
             <div className="username">
               <h2>Username</h2>

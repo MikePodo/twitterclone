@@ -1,6 +1,7 @@
 import React from "react";
 //Icons
 import { FaSearch } from "react-icons/fa";
+
 const Right = ({ rightStatus, setRightStatus }) => {
   return (
     <div
@@ -13,9 +14,10 @@ const Right = ({ rightStatus, setRightStatus }) => {
           onClick={() => setRightStatus(!rightStatus)}
           className={`${rightStatus ? "x-right" : ""}`}
         >
-          <div className="line1"></div>
-          <div className="line2"></div>
+          <span className="line1"></span>
+          <span className="line2"></span>
         </div>
+
         <div className="textarea">
           <FaSearch className="search" />
           <input
