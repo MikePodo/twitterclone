@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-//components
 
 //Icons
 import { FaTwitter } from "react-icons/fa";
