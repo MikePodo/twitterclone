@@ -16,8 +16,20 @@ const Main = ({
   tweetInput,
   tweetButton,
 }) => {
+  //Chance
+  const Chance = require("chance");
+  const chance = new Chance();
+
   const tweetHandler = () => {
-    setTweetList([tweetInput.current.value, ...tweetList]);
+    setTweetList([
+      {
+        tweet: tweetInput.current.value,
+        commentNumber: Math.floor(Math.random() * 500),
+        retweetNumber: Math.floor(Math.random() * 1000),
+        likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
+      },
+      ...tweetList,
+    ]);
     tweetInput.current.value = "";
   };
 
@@ -64,7 +76,10 @@ const Main = ({
       {tweetList.map((tweet) => (
         <Tweet
           color={{ backgroundColor: "rgb(35, 115, 128)" }}
-          tweet={tweet}
+          commentNumber={tweet.commentNumber}
+          retweetNumber={tweet.retweetNumber}
+          likeNumber={tweet.likeNumber}
+          tweet={tweet.tweet}
           key={Math.random() * 1000}
         />
       ))}

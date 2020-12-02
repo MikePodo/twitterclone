@@ -4,7 +4,14 @@ import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 
-const Tweet = ({ tweet, randomTweet, color }) => {
+const Tweet = ({
+  tweet,
+  randomTweet,
+  color,
+  commentNumber,
+  retweetNumber,
+  likeNumber,
+}) => {
   const Chance = require("chance");
   const chance = new Chance();
 
@@ -32,10 +39,7 @@ const Tweet = ({ tweet, randomTweet, color }) => {
           <p>10m</p>
         </div>
         <div className="tweet-content">
-          <p>
-            {tweet}
-            {randomTweet}
-          </p>
+          <p>{tweet ? tweet : randomTweet}</p>
           <br />
           <div className="tweet-image" style={color}></div>
         </div>
@@ -43,15 +47,17 @@ const Tweet = ({ tweet, randomTweet, color }) => {
         <div className="tweet-bottom">
           <p>
             <RiChat3Line className="tweet-icon" />
-            {Math.floor(Math.random() * 500)}
+            {commentNumber ? commentNumber : Math.floor(Math.random() * 500)}
           </p>
           <p>
             <FaRetweet className="tweet-icon" />
-            {Math.floor(Math.random() * 1000)}
+            {retweetNumber ? retweetNumber : Math.floor(Math.random() * 1000)}
           </p>
           <p>
             {like}
-            {chance.floating({ min: 1, max: 50, fixed: 1 })}k
+            {likeNumber
+              ? likeNumber + "k"
+              : chance.floating({ min: 1, max: 50, fixed: 1 }) + "k"}
           </p>
           <p>
             {" "}
