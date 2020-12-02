@@ -1,5 +1,4 @@
 import React from "react";
-//Components
 import Tweet from "./Tweet";
 //Icons
 import { HiOutlinePhotograph } from "react-icons/hi";
