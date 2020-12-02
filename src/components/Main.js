@@ -46,7 +46,7 @@ const Main = ({
           onClick={() => setRightStatus(!rightStatus)}
           className="open-search"
         >
-          Search &gt;
+          Explore &gt;
         </div>
       </div>
       <div className="whats-happening">
