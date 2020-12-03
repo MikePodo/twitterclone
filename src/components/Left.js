@@ -29,6 +29,27 @@ const Left = ({
     e.preventDefault();
   };
 
+  const closePopupHandler = (e) => {
+    e.preventDefault();
+    setUserPopup(!userPopup);
+    /*console.log(e.target.className);
+    if (e.target.className.includes("profile")) {
+      setUserPopup(userPopup);
+    } else {
+      setUserPopup(!userPopup);
+    }*/
+  };
+
+  /*document.addEventListener("click", (e) => {
+    if (!e.target.className.includes("profile")) {
+      console.log("false");
+      e.stopPropagation();
+    } else {
+      return;
+    }
+    console.log(e.target.className);
+  });*/
+
   return (
     <div
       ref={leftContainer}
@@ -83,9 +104,13 @@ const Left = ({
           </button>
 
           <div
+            tabIndex="2"
             className="profile"
-            onClick={(e) => {
+            onFocus={(e) => {
               popupHandler(e);
+            }}
+            onBlur={(e) => {
+              closePopupHandler(e);
             }}
           >
             <div className="profile-pic"></div>
