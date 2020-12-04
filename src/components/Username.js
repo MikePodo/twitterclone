@@ -1,8 +1,20 @@
 import React from "react";
 
-const Username = ({ userPopup }) => {
+const Username = ({ userPopup, setUserPopup }) => {
+  const popupHandlerFocusFix = () => {
+    setUserPopup(true);
+  };
+  const popupHandlerBlurFix = () => {
+    setUserPopup(false);
+  };
+
   return (
-    <div className={`username-popup ${userPopup ? "active" : ""}`}>
+    <div
+      tabIndex="3"
+      className={`username-popup ${userPopup ? "active" : ""}`}
+      onFocus={popupHandlerFocusFix}
+      onBlur={popupHandlerBlurFix}
+    >
       <div className="profile-pic-popup"></div>
       <div className="name-popup">
         <h2>Username</h2>

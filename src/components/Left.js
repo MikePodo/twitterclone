@@ -24,31 +24,13 @@ const Left = ({
     }, 10);
   };
 
-  const popupHandler = (e) => {
+  const popupHandler = () => {
     setUserPopup(!userPopup);
-    e.preventDefault();
   };
 
-  const closePopupHandler = (e) => {
-    e.preventDefault();
+  const closePopupHandler = () => {
     setUserPopup(!userPopup);
-    /*console.log(e.target.className);
-    if (e.target.className.includes("profile")) {
-      setUserPopup(userPopup);
-    } else {
-      setUserPopup(!userPopup);
-    }*/
   };
-
-  /*document.addEventListener("click", (e) => {
-    if (!e.target.className.includes("profile")) {
-      console.log("false");
-      e.stopPropagation();
-    } else {
-      return;
-    }
-    console.log(e.target.className);
-  });*/
 
   return (
     <div
@@ -106,12 +88,8 @@ const Left = ({
           <div
             tabIndex="2"
             className="profile"
-            onFocus={(e) => {
-              popupHandler(e);
-            }}
-            onBlur={(e) => {
-              closePopupHandler(e);
-            }}
+            onClick={popupHandler}
+            onBlur={closePopupHandler}
           >
             <div className="profile-pic"></div>
             <div className="username">
