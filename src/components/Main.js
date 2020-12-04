@@ -24,10 +24,10 @@ const Main = ({
   const Chance = require("chance");
   const chance = new Chance();
   //Firebase
-  const firestore = firebase.firestore();
-  const docRef = firestore.collection("tweets");
 
   useEffect(() => {
+    const firestore = firebase.firestore();
+    const docRef = firestore.collection("tweets");
     docRef.orderBy("timestamp", "desc").onSnapshot((snapshot) => {
       const getTweetList = snapshot.docs.map((doc) => ({
         tweet: doc.tweet,
@@ -37,7 +37,7 @@ const Main = ({
       }));
       setTweetList(getTweetList);
     });
-  }, [docRef, setTweetList]);
+  }, [setTweetList]);
 
   const [tweetError, setTweetError] = useState(false);
 
@@ -57,7 +57,8 @@ const Main = ({
         },
         ...tweetList,
       ]);
-
+      const firestore = firebase.firestore();
+      const docRef = firestore.collection("tweets");
       docRef.add({
         tweet: tweetInput.current.value,
         username: username,
