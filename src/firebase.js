@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import "firebase/firestore";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCoPykgSBOaCQmiRTK6gOkKTzA9fjLgwvk",
   authDomain: "twitterclone-692c4.firebaseapp.com",
   databaseURL: "https://twitterclone-692c4-default-rtdb.firebaseio.com",

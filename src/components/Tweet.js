@@ -13,13 +13,10 @@ const Tweet = ({
   username,
   tweetList,
   setTweetList,
+  isLiked,
+  setIsLiked,
+  likeHandler,
 }) => {
-  const [isLiked, setIsLiked] = useState(false);
-
-  const likeHandler = () => {
-    setIsLiked(!isLiked);
-  };
-
   let like;
   isLiked
     ? (like = (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
+import { v4 as uuidv4 } from "uuid";
 
 /*import firebase from "firebase";*/
 //Component
@@ -20,8 +21,10 @@ const Main = ({
   tweetButton,
   username,
 }) => {
-  //Firebase
+  //state
+  const [isLiked, setIsLiked] = useState(false);
 
+  //Firebase
   useEffect(() => {
     const firestore = firebase.firestore();
     const docRef = firestore.collection("tweets");
@@ -30,6 +33,8 @@ const Main = ({
         tweet: doc.tweet,
         username: doc.username,
         timestamp: doc.timestamp,
+        likeNumber: doc.likeNumber,
+
         ...doc.data(),
       }));
       setTweetList(getTweetList);
@@ -38,12 +43,12 @@ const Main = ({
 
   const [tweetError, setTweetError] = useState(false);
 
-  const tweetHandler = () => {
+  const tweetHandler = (id, e) => {
     if (tweetInput.current.value === "") {
       setTweetError(true);
     } else {
       setTweetError(false);
-      setTweetList([
+      /* setTweetList([
         {
           tweet: tweetInput.current.value,
           username: username,
@@ -53,20 +58,31 @@ const Main = ({
           key: Math.random() * 1000,
         },
         ...tweetList,
-      ]);
-      const firestore = firebase.firestore();
-      const docRef = firestore.collection("tweets");
-      docRef.add({
+      ]);*/
+
+      const docRef = firebase.firestore().collection("tweets");
+      docRef.doc(id.id).set({
         tweet: tweetInput.current.value,
         username: username,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         commentNumber: 0,
         retweetNumber: 0,
         likeNumber: 0,
+        id: id.id,
+        key: id.id,
       });
 
       tweetInput.current.value = "";
     }
+  };
+
+  const likeHandler = () => {
+    setIsLiked(!isLiked);
+    const firestore = firebase.firestore();
+    const docRef = firestore.collection("tweets");
+    docRef.onSnapshot((snapshot) => {
+      snapshot.docs.map((doc) => ({}));
+    });
   };
 
   return (
@@ -89,6 +105,7 @@ const Main = ({
         <div className="whats-happening-top">
           <div className="userinput">
             <div className="profile-pic-main"></div>
+
             <input
               placeholder="What's happening?"
               className="happening-textarea"
@@ -111,7 +128,10 @@ const Main = ({
             <BiSmile className="happening-icon" />
             <AiOutlineCalendar className="happening-icon" />
           </div>
-          <button ref={tweetButton} onClick={tweetHandler}>
+          <button
+            ref={tweetButton}
+            onClick={() => tweetHandler({ id: uuidv4() })}
+          >
             Tweet
           </button>
         </div>
@@ -119,6 +139,9 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
+          likeHandler={likeHandler}
+          isLiked={isLiked}
+          setIsLiked={setIsLiked}
           setTweetList={setTweetList}
           tweetList={tweetList}
           username={tweet.username}
