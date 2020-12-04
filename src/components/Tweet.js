@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 //Icons
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
