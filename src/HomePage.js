@@ -5,7 +5,7 @@ import Main from "./components/Main";
 import Right from "./components/Right";
 import Username from "./components/Username";
 
-const HomePage = ({ username }) => {
+const HomePage = ({ username, loggedIn, setLoggedIn }) => {
   const tweetInput = useRef();
   const tweetButton = useRef();
   const [leftStatus, setLeftStatus] = useState(false);
@@ -16,6 +16,8 @@ const HomePage = ({ username }) => {
   return (
     <div className="homepage">
       <Username
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
         username={username}
         userPopup={userPopup}
         setUserPopup={setUserPopup}

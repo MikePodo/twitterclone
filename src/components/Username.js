@@ -1,11 +1,21 @@
 import React from "react";
 
-const Username = ({ userPopup, setUserPopup, username }) => {
+const Username = ({
+  userPopup,
+  setUserPopup,
+  username,
+  loggedIn,
+  setLoggedIn,
+}) => {
   const popupHandlerFocusFix = () => {
     setUserPopup(true);
   };
   const popupHandlerBlurFix = () => {
     setUserPopup(false);
+  };
+
+  const logoutHandler = () => {
+    setLoggedIn(false);
   };
 
   return (
@@ -24,7 +34,7 @@ const Username = ({ userPopup, setUserPopup, username }) => {
         <h3>Add an existing account</h3>
       </div>
       <div className="logout">
-        <h3>Log out @{username.toLowerCase()}</h3>
+        <h3 onClick={logoutHandler}>Log out @{username.toLowerCase()}</h3>
       </div>
     </div>
   );

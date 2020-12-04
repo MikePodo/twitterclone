@@ -10,7 +10,11 @@ function App() {
   return (
     <div className="App">
       {loggedIn ? (
-        <HomePage username={username} />
+        <HomePage
+          username={username}
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+        />
       ) : (
         <LoginUser
           username={username}
