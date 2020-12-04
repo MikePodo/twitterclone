@@ -49,7 +49,18 @@
   margin: auto;
   padding-top: 1rem;
   display: flex;
+  flex-direction: column;
 }
+
+.userinput {
+  display: flex;
+}
+
+.tweet-error-message {
+  color: rgb(204, 0, 0);
+  padding: 1rem 3rem;
+}
+
 .happening-textarea {
   height: 2.5rem;
   margin: auto 0;

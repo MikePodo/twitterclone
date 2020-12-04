@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //Component
 import Tweet from "./Tweet";
 //Icons
@@ -20,18 +20,25 @@ const Main = ({
   const Chance = require("chance");
   const chance = new Chance();
 
+  const [tweetError, setTweetError] = useState(false);
+
   const tweetHandler = () => {
-    setTweetList([
-      {
-        tweet: tweetInput.current.value,
-        commentNumber: Math.floor(Math.random() * 500),
-        retweetNumber: Math.floor(Math.random() * 1000),
-        likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
-        key: Math.random() * 1000,
-      },
-      ...tweetList,
-    ]);
-    tweetInput.current.value = "";
+    if (tweetInput.current.value === "") {
+      setTweetError(true);
+    } else {
+      setTweetError(false);
+      setTweetList([
+        {
+          tweet: tweetInput.current.value,
+          commentNumber: Math.floor(Math.random() * 500),
+          retweetNumber: Math.floor(Math.random() * 1000),
+          likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
+          key: Math.random() * 1000,
+        },
+        ...tweetList,
+      ]);
+      tweetInput.current.value = "";
+    }
   };
 
   return (
@@ -52,13 +59,21 @@ const Main = ({
       </div>
       <div className="whats-happening">
         <div className="whats-happening-top">
-          <div className="profile-pic-main"></div>
-          <input
-            placeholder="What's happening?"
-            className="happening-textarea"
-            type="textarea"
-            ref={tweetInput}
-          ></input>
+          <div className="userinput">
+            <div className="profile-pic-main"></div>
+            <input
+              placeholder="What's happening?"
+              className="happening-textarea"
+              type="textarea"
+              ref={tweetInput}
+            ></input>
+          </div>
+
+          <div className="tweet-error">
+            <p className={tweetError ? "tweet-error-message" : ""}>
+              {tweetError ? "*Please type a tweet*" : ""}
+            </p>
+          </div>
         </div>
         <div className="whats-happening-bottom">
           <div className="happening-icons">
