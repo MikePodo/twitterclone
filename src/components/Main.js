@@ -20,9 +20,6 @@ const Main = ({
   tweetButton,
   username,
 }) => {
-  //Chance
-  const Chance = require("chance");
-  const chance = new Chance();
   //Firebase
 
   useEffect(() => {
