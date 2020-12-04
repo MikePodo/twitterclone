@@ -37,7 +37,7 @@ const Main = ({
       }));
       setTweetList(getTweetList);
     });
-  }, []);
+  }, [docRef, setTweetList]);
 
   const [tweetError, setTweetError] = useState(false);
 
