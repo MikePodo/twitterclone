@@ -27,6 +27,7 @@ const Main = ({
         commentNumber: Math.floor(Math.random() * 500),
         retweetNumber: Math.floor(Math.random() * 1000),
         likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
+        key: Math.random() * 1000,
       },
       ...tweetList,
     ]);
@@ -80,7 +81,7 @@ const Main = ({
           retweetNumber={tweet.retweetNumber}
           likeNumber={tweet.likeNumber}
           tweet={tweet.tweet}
-          key={Math.random() * 1000}
+          key={tweet.key}
         />
       ))}
 

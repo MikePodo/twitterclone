@@ -7,6 +7,10 @@
   font-weight: 400;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   display: flex;
 }
@@ -15,6 +19,5 @@
 @import "right";
 @import "main";
 @import "tweet";
-
 @import "username";
 @import "mobile";
