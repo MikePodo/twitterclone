@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import firebase from "../firebase";
+
+/*import firebase from "firebase";*/
 //Component
 import Tweet from "./Tweet";
 //Icons
@@ -20,6 +23,21 @@ const Main = ({
   //Chance
   const Chance = require("chance");
   const chance = new Chance();
+  //Firebase
+  const firestore = firebase.firestore();
+  const docRef = firestore.collection("tweets");
+
+  useEffect(() => {
+    docRef.orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+      const getTweetList = snapshot.docs.map((doc) => ({
+        tweet: doc.tweet,
+        username: doc.username,
+        timestamp: doc.timestamp,
+        ...doc.data(),
+      }));
+      setTweetList(getTweetList);
+    });
+  }, []);
 
   const [tweetError, setTweetError] = useState(false);
 
@@ -31,6 +49,7 @@ const Main = ({
       setTweetList([
         {
           tweet: tweetInput.current.value,
+          username: username,
           commentNumber: Math.floor(Math.random() * 500),
           retweetNumber: Math.floor(Math.random() * 1000),
           likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
@@ -38,6 +57,13 @@ const Main = ({
         },
         ...tweetList,
       ]);
+
+      docRef.add({
+        tweet: tweetInput.current.value,
+        username: username,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+
       tweetInput.current.value = "";
     }
   };
@@ -92,7 +118,7 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
-          username={username}
+          username={tweet.username}
           color={{ backgroundColor: "rgb(35, 115, 128)" }}
           commentNumber={tweet.commentNumber}
           retweetNumber={tweet.retweetNumber}
