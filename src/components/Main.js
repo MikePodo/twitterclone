@@ -50,9 +50,9 @@ const Main = ({
         {
           tweet: tweetInput.current.value,
           username: username,
-          commentNumber: Math.floor(Math.random() * 500),
-          retweetNumber: Math.floor(Math.random() * 1000),
-          likeNumber: chance.floating({ min: 1, max: 50, fixed: 1 }),
+          commentNumber: 0,
+          retweetNumber: 0,
+          likeNumber: 0,
           key: Math.random() * 1000,
         },
         ...tweetList,
@@ -63,6 +63,9 @@ const Main = ({
         tweet: tweetInput.current.value,
         username: username,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        commentNumber: 0,
+        retweetNumber: 0,
+        likeNumber: 0,
       });
 
       tweetInput.current.value = "";
@@ -119,6 +122,8 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
+          setTweetList={setTweetList}
+          tweetList={tweetList}
           username={tweet.username}
           color={{ backgroundColor: "rgb(35, 115, 128)" }}
           commentNumber={tweet.commentNumber}
@@ -128,22 +133,6 @@ const Main = ({
           key={tweet.key}
         />
       ))}
-
-      <Tweet
-        randomTweet={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente veniam ipsa sit ratione voluptas magni eius quod hic modi nam."
-        }
-      />
-      <Tweet
-        randomTweet={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente veniam ipsa sit ratione voluptas magni eius quod hic modi nam."
-        }
-      />
-      <Tweet
-        randomTweet={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente veniam ipsa sit ratione voluptas magni eius quod hic modi nam."
-        }
-      />
     </div>
   );
 };

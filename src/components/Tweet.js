@@ -6,16 +6,14 @@ import { AiFillHeart } from "react-icons/ai";
 
 const Tweet = ({
   tweet,
-  randomTweet,
   color,
   commentNumber,
   retweetNumber,
   likeNumber,
   username,
+  tweetList,
+  setTweetList,
 }) => {
-  const Chance = require("chance");
-  const chance = new Chance();
-
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -40,7 +38,7 @@ const Tweet = ({
           <p>10m</p>
         </div>
         <div className="tweet-content">
-          <p>{tweet ? tweet : randomTweet}</p>
+          <p>{tweet}</p>
           <br />
           <div className="tweet-image" style={color}></div>
         </div>
@@ -48,17 +46,15 @@ const Tweet = ({
         <div className="tweet-bottom">
           <p>
             <RiChat3Line className="tweet-icon" />
-            {commentNumber ? commentNumber : Math.floor(Math.random() * 500)}
+            {commentNumber}
           </p>
           <p>
             <FaRetweet className="tweet-icon" />
-            {retweetNumber ? retweetNumber : Math.floor(Math.random() * 1000)}
+            {retweetNumber}
           </p>
           <p>
             {like}
-            {likeNumber
-              ? likeNumber + "k"
-              : chance.floating({ min: 1, max: 50, fixed: 1 }) + "k"}
+            {likeNumber}
           </p>
           <p>
             {" "}
