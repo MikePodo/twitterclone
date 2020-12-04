@@ -11,10 +11,11 @@
   display: none;
 }
 
-.App {
+.homepage {
   display: flex;
 }
 
+@import "loginuser";
 @import "left";
 @import "right";
 @import "main";

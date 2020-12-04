@@ -14,6 +14,7 @@ const Left = ({
   profile,
   setUserPopup,
   userPopup,
+  username,
 }) => {
   const leftContainer = useRef();
 
@@ -93,8 +94,8 @@ const Left = ({
           >
             <div className="profile-pic"></div>
             <div className="username">
-              <h2>Username</h2>
-              <h3>@username</h3>
+              <h2>{username}</h2>
+              <h3>@{username.toLowerCase()}</h3>
             </div>
           </div>
         </div>

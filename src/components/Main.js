@@ -15,6 +15,7 @@ const Main = ({
   setRightStatus,
   tweetInput,
   tweetButton,
+  username,
 }) => {
   //Chance
   const Chance = require("chance");
@@ -91,6 +92,7 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
+          username={username}
           color={{ backgroundColor: "rgb(35, 115, 128)" }}
           commentNumber={tweet.commentNumber}
           retweetNumber={tweet.retweetNumber}

@@ -1,0 +1,40 @@
+.loginuser {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginbox {
+  width: 20%;
+  height: 30%;
+  box-shadow: 1px 1px 10px rgb(202, 202, 202), 1px 1px 20px rgb(179, 179, 179);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  h1 {
+    padding: 1rem;
+    color: rgb(31, 167, 230);
+  }
+  input {
+    width: 70%;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none;
+    border: 1px solid rgb(31, 167, 230);
+  }
+}
+
+.go {
+  font-size: 2rem;
+  padding: 0rem 2rem;
+  border: none;
+  background: rgb(31, 167, 230);
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background: rgb(28, 145, 199);
+  }
+}

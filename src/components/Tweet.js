@@ -11,6 +11,7 @@ const Tweet = ({
   commentNumber,
   retweetNumber,
   likeNumber,
+  username,
 }) => {
   const Chance = require("chance");
   const chance = new Chance();
@@ -33,8 +34,8 @@ const Tweet = ({
       <div className="tweet">
         <div className="user">
           <div style={color} className="profile-pic-tweet"></div>
-          <h3>User</h3>
-          <h4>@user</h4>
+          <h3>{username ? username : "User"}</h3>
+          <h4>@{username ? username.toLowerCase() : "user"}</h4>
           <p>•</p>
           <p>10m</p>
         </div>

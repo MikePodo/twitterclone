@@ -36,6 +36,10 @@
   .active {
     left: 1%;
   }
+
+  .loginbox {
+    width: 40%;
+  }
 }
 
 @media screen and (max-width: 888px) {
@@ -188,5 +192,8 @@
   }
   .happening-right-img {
     display: block;
+  }
+  .loginbox {
+    width: 80%;
   }
 }
