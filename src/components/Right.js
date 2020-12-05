@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 //Icons
 import { FaSearch } from "react-icons/fa";
+import { MdClear } from "react-icons/md";
 
 const Right = ({ rightStatus, setRightStatus }) => {
+  const [x, setX] = useState(false);
+
+  const tweetSearch = useRef();
+
+  const searchHandler = () => {
+    if (tweetSearch.current.value !== "") {
+      setX(true);
+    } else {
+      setX(false);
+    }
+  };
+
+  const searchTweets = (e) => {
+    if (e.charCode === 13) {
+      console.log("enter pressed");
+    }
+  };
+
+  const clearInput = () => {
+    tweetSearch.current.value = "";
+    setX(false);
+  };
+
   return (
     <div
       className={`${
@@ -20,10 +44,14 @@ const Right = ({ rightStatus, setRightStatus }) => {
 
         <div className="textarea">
           <FaSearch className="search" />
+          {x ? <MdClear onClick={clearInput} className="clearsearch" /> : <></>}
           <input
             placeholder="Search Twitter"
             className="right-textarea"
             type="textarea"
+            onChange={searchHandler}
+            onKeyPress={searchTweets}
+            ref={tweetSearch}
           ></input>
         </div>
 

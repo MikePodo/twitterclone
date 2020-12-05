@@ -197,3 +197,21 @@
     width: 80%;
   }
 }
+
+@media screen and (max-height: 680px) {
+  .loginbox {
+    font-size: 70%;
+    h1 {
+      padding: 0rem;
+    }
+    input {
+      padding: 0rem;
+      margin-top: 0rem;
+    }
+    .go {
+      padding: 0rem 2rem;
+      font-size: 1.3rem;
+      margin: 0.5rem 0rem;
+    }
+  }
+}

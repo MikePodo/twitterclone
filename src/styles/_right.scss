@@ -27,6 +27,16 @@
   position: relative;
 }
 
+.clearsearch {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%) scale(2);
+  right: 5%;
+  cursor: pointer;
+  color: rgb(31, 167, 230);
+}
+
 .right-textarea {
   width: 100%;
   height: 3vh;

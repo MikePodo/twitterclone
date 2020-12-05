@@ -12,11 +12,17 @@ const LoginUser = ({ loggedIn, setLoggedIn, username, setUsername }) => {
     }
   };
 
+  const clickHandler = (e) => {
+    if (e.charCode === 13) {
+      loginHandler();
+    }
+  };
+
   return (
     <div className="loginuser">
       <div className="loginbox">
         <h1>Enter Username:</h1>
-        <input ref={loginInput} type="textarea" />
+        <input onKeyPress={clickHandler} ref={loginInput} type="textarea" />
         <button onClick={loginHandler} className="go">
           Go
         </button>

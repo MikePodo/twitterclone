@@ -8,6 +8,7 @@
 .loginbox {
   width: 20%;
   height: 30%;
+  padding: 1rem;
   box-shadow: 1px 1px 10px rgb(202, 202, 202), 1px 1px 20px rgb(179, 179, 179);
   border-radius: 1rem;
   display: flex;
@@ -30,6 +31,7 @@
 .go {
   font-size: 2rem;
   padding: 0rem 2rem;
+  margin: 1rem 0rem;
   border: none;
   background: rgb(31, 167, 230);
   color: white;

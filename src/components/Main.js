@@ -85,6 +85,12 @@ const Main = ({
     });
   };
 
+  const clickHandler = (e) => {
+    if (e.charCode === 13) {
+      tweetHandler({ id: uuidv4() });
+    }
+  };
+
   return (
     <div className={`${leftStatus || rightStatus ? "main-disabled" : "main"}`}>
       <div className="header-nav">
@@ -111,6 +117,7 @@ const Main = ({
               className="happening-textarea"
               type="textarea"
               ref={tweetInput}
+              onKeyPress={clickHandler}
             ></input>
           </div>
 
