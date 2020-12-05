@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
+
 //Icons
 import { FaSearch } from "react-icons/fa";
 import { MdClear } from "react-icons/md";
 
-const Right = ({ rightStatus, setRightStatus }) => {
+const Right = ({ rightStatus, setRightStatus, tweetList, setTweetList }) => {
   const [x, setX] = useState(false);
 
   const tweetSearch = useRef();
@@ -18,7 +19,7 @@ const Right = ({ rightStatus, setRightStatus }) => {
 
   const searchTweets = (e) => {
     if (e.charCode === 13) {
-      console.log("enter pressed");
+      console.log("enter");
     }
   };
 

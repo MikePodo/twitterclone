@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import firebase from "../firebase";
 //Icons
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
@@ -11,12 +12,28 @@ const Tweet = ({
   retweetNumber,
   likeNumber,
   username,
+
+  id,
   tweetList,
   setTweetList,
-  isLiked,
-  setIsLiked,
-  likeHandler,
 }) => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const likeHandler = () => {
+    setIsLiked(!isLiked);
+    const firestore = firebase.firestore();
+    const docRef = firestore.collection("tweets").doc(id);
+    if (!isLiked) {
+      docRef.update({
+        likeNumber: likeNumber + 1,
+      });
+    } else {
+      docRef.update({
+        likeNumber: likeNumber - 1,
+      });
+    }
+  };
+
   let like;
   isLiked
     ? (like = (

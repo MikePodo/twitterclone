@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { v4 as uuidv4 } from "uuid";
 
-/*import firebase from "firebase";*/
 //Component
 import Tweet from "./Tweet";
 //Icons
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { RiFileGifLine } from "react-icons/ri";
 import { BiPoll, BiSmile } from "react-icons/bi";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineCalendar, AiTwotoneTrademarkCircle } from "react-icons/ai";
 const Main = ({
   tweetList,
   setTweetList,
@@ -22,7 +21,6 @@ const Main = ({
   username,
 }) => {
   //state
-  const [isLiked, setIsLiked] = useState(false);
 
   //Firebase
   useEffect(() => {
@@ -34,6 +32,8 @@ const Main = ({
         username: doc.username,
         timestamp: doc.timestamp,
         likeNumber: doc.likeNumber,
+        id: doc.id,
+        key: doc.key,
 
         ...doc.data(),
       }));
@@ -48,17 +48,6 @@ const Main = ({
       setTweetError(true);
     } else {
       setTweetError(false);
-      /* setTweetList([
-        {
-          tweet: tweetInput.current.value,
-          username: username,
-          commentNumber: 0,
-          retweetNumber: 0,
-          likeNumber: 0,
-          key: Math.random() * 1000,
-        },
-        ...tweetList,
-      ]);*/
 
       const docRef = firebase.firestore().collection("tweets");
       docRef.doc(id.id).set({
@@ -76,16 +65,7 @@ const Main = ({
     }
   };
 
-  const likeHandler = () => {
-    setIsLiked(!isLiked);
-    const firestore = firebase.firestore();
-    const docRef = firestore.collection("tweets");
-    docRef.onSnapshot((snapshot) => {
-      snapshot.docs.map((doc) => ({}));
-    });
-  };
-
-  const clickHandler = (e) => {
+  const enterHandler = (e) => {
     if (e.charCode === 13) {
       tweetHandler({ id: uuidv4() });
     }
@@ -117,7 +97,7 @@ const Main = ({
               className="happening-textarea"
               type="textarea"
               ref={tweetInput}
-              onKeyPress={clickHandler}
+              onKeyPress={enterHandler}
             ></input>
           </div>
 
@@ -146,9 +126,6 @@ const Main = ({
       <div className="gap"></div>
       {tweetList.map((tweet) => (
         <Tweet
-          likeHandler={likeHandler}
-          isLiked={isLiked}
-          setIsLiked={setIsLiked}
           setTweetList={setTweetList}
           tweetList={tweetList}
           username={tweet.username}
@@ -157,6 +134,7 @@ const Main = ({
           retweetNumber={tweet.retweetNumber}
           likeNumber={tweet.likeNumber}
           tweet={tweet.tweet}
+          id={tweet.id}
           key={tweet.key}
         />
       ))}
