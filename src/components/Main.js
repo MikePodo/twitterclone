@@ -8,7 +8,7 @@ import Tweet from "./Tweet";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { RiFileGifLine } from "react-icons/ri";
 import { BiPoll, BiSmile } from "react-icons/bi";
-import { AiOutlineCalendar, AiTwotoneTrademarkCircle } from "react-icons/ai";
+import { AiOutlineCalendar } from "react-icons/ai";
 const Main = ({
   tweetList,
   setTweetList,
