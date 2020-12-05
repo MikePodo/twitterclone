@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import firebase from "../firebase";
+import ReactTimeAgo from "react-time-ago";
 //Icons
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
@@ -12,11 +13,13 @@ const Tweet = ({
   retweetNumber,
   likeNumber,
   username,
-
   id,
+  timestamp,
   tweetList,
   setTweetList,
 }) => {
+  console.log(timestamp);
+
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -49,7 +52,15 @@ const Tweet = ({
           <h3>{username ? username : "User"}</h3>
           <h4>@{username ? username.toLowerCase() : "user"}</h4>
           <p>•</p>
-          <p>10m</p>
+          <p>
+            {timestamp ? (
+              <ReactTimeAgo
+                date={timestamp.toDate()}
+                locale="en-US"
+                timeStyle="twitter"
+              />
+            ) : null}
+          </p>
         </div>
         <div className="tweet-content">
           <p>{tweet}</p>

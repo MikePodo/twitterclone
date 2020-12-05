@@ -6,7 +6,7 @@ import Main from "./components/Main";
 import Right from "./components/Right";
 import Username from "./components/Username";
 
-const HomePage = ({ username, loggedIn, setLoggedIn }) => {
+const HomePage = ({ username, loggedIn, setLoggedIn, colorPicker }) => {
   const tweetInput = useRef();
   const tweetButton = useRef();
   const [leftStatus, setLeftStatus] = useState(false);
@@ -17,6 +17,7 @@ const HomePage = ({ username, loggedIn, setLoggedIn }) => {
   return (
     <div className="homepage">
       <Username
+        colorPicker={colorPicker}
         loggedIn={loggedIn}
         setLoggedIn={setLoggedIn}
         username={username}
@@ -24,6 +25,7 @@ const HomePage = ({ username, loggedIn, setLoggedIn }) => {
         setUserPopup={setUserPopup}
       />
       <Left
+        colorPicker={colorPicker}
         username={username}
         tweetInput={tweetInput}
         leftStatus={leftStatus}
@@ -32,6 +34,7 @@ const HomePage = ({ username, loggedIn, setLoggedIn }) => {
         setUserPopup={setUserPopup}
       />
       <Main
+        colorPicker={colorPicker}
         username={username}
         tweetInput={tweetInput}
         tweetButton={tweetButton}

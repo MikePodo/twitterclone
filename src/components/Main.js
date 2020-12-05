@@ -19,6 +19,7 @@ const Main = ({
   tweetInput,
   tweetButton,
   username,
+  colorPicker,
 }) => {
   //state
 
@@ -34,6 +35,7 @@ const Main = ({
         likeNumber: doc.likeNumber,
         id: doc.id,
         key: doc.key,
+        color: doc.color,
 
         ...doc.data(),
       }));
@@ -59,6 +61,7 @@ const Main = ({
         likeNumber: 0,
         id: id.id,
         key: id.id,
+        color: colorPicker.background,
       });
 
       tweetInput.current.value = "";
@@ -90,7 +93,7 @@ const Main = ({
       <div className="whats-happening">
         <div className="whats-happening-top">
           <div className="userinput">
-            <div className="profile-pic-main"></div>
+            <div style={colorPicker} className="profile-pic-main"></div>
 
             <input
               placeholder="What's happening?"
@@ -129,7 +132,8 @@ const Main = ({
           setTweetList={setTweetList}
           tweetList={tweetList}
           username={tweet.username}
-          color={{ backgroundColor: "rgb(35, 115, 128)" }}
+          timestamp={tweet.timestamp}
+          color={{ backgroundColor: tweet.color }}
           commentNumber={tweet.commentNumber}
           retweetNumber={tweet.retweetNumber}
           likeNumber={tweet.likeNumber}

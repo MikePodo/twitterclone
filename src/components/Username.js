@@ -6,6 +6,7 @@ const Username = ({
   username,
   loggedIn,
   setLoggedIn,
+  colorPicker,
 }) => {
   const popupHandlerFocusFix = () => {
     setUserPopup(true);
@@ -25,7 +26,7 @@ const Username = ({
       onFocus={popupHandlerFocusFix}
       onBlur={popupHandlerBlurFix}
     >
-      <div className="profile-pic-popup"></div>
+      <div style={colorPicker} className="profile-pic-popup"></div>
       <div className="name-popup">
         <h2>{username}</h2>
         <h3>@{username.toLowerCase()}</h3>

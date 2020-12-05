@@ -1,6 +1,14 @@
 import React, { useRef } from "react";
+import { SketchPicker } from "react-color";
 
-const LoginUser = ({ loggedIn, setLoggedIn, username, setUsername }) => {
+const LoginUser = ({
+  loggedIn,
+  setLoggedIn,
+  username,
+  setUsername,
+  colorPicker,
+  setColorPicker,
+}) => {
   const loginInput = useRef();
 
   const loginHandler = () => {
@@ -18,6 +26,13 @@ const LoginUser = ({ loggedIn, setLoggedIn, username, setUsername }) => {
     }
   };
 
+  const handleColorChange = (color) => {
+    setColorPicker({
+      background: color.hex,
+    });
+    console.log(colorPicker);
+  };
+
   return (
     <div className="loginuser">
       <div className="loginbox">
@@ -27,6 +42,12 @@ const LoginUser = ({ loggedIn, setLoggedIn, username, setUsername }) => {
           Go
         </button>
       </div>
+      <SketchPicker
+        disableAlpha={true}
+        color={colorPicker.background}
+        onChange={handleColorChange}
+        className="colorpicker"
+      />
     </div>
   );
 };

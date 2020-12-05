@@ -15,6 +15,7 @@ const Left = ({
   setUserPopup,
   userPopup,
   username,
+  colorPicker,
 }) => {
   const leftContainer = useRef();
 
@@ -92,7 +93,7 @@ const Left = ({
             onClick={popupHandler}
             onBlur={closePopupHandler}
           >
-            <div className="profile-pic"></div>
+            <div style={colorPicker} className="profile-pic"></div>
             <div className="username">
               <h2>{username}</h2>
               <h3>@{username.toLowerCase()}</h3>
