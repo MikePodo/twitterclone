@@ -7,6 +7,7 @@ import { BiHash, BiBell } from "react-icons/bi";
 import { FiMail } from "react-icons/fi";
 import { BsBookmark } from "react-icons/bs";
 import { CgProfile, CgMoreO } from "react-icons/cg";
+import { MdClear } from "react-icons/md";
 const Left = ({
   leftStatus,
   setLeftStatus,
@@ -48,8 +49,7 @@ const Left = ({
             onClick={() => setLeftStatus(!leftStatus)}
             className={`${leftStatus ? "x" : ""}`}
           >
-            <div className="line1"></div>
-            <div className="line2"></div>
+            <MdClear className="x-icon" />
           </div>
           <div className="option">
             <RiHome7Fill className="option-icon" />

@@ -39,8 +39,7 @@ const Right = ({ rightStatus, setRightStatus, tweetList, setTweetList }) => {
           onClick={() => setRightStatus(!rightStatus)}
           className={`${rightStatus ? "x-right" : ""}`}
         >
-          <span className="line1"></span>
-          <span className="line2"></span>
+          <MdClear className="x-icon" />
         </div>
 
         <div className="textarea">
