@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import firebase from "../firebase";
 import ReactTimeAgo from "react-time-ago";
+import { v4 as uuidv4 } from "uuid";
 //Icons
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
@@ -17,9 +18,8 @@ const Tweet = ({
   timestamp,
   tweetList,
   setTweetList,
+  initialUsername,
 }) => {
-  console.log(timestamp);
-
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -43,6 +43,33 @@ const Tweet = ({
         <AiFillHeart onClick={likeHandler} className="tweet-icon filled" />
       ))
     : (like = <FaRegHeart onClick={likeHandler} className="tweet-icon" />);
+
+  const retweet = (id) => {
+    const firestore = firebase.firestore();
+    const docRef = firestore.collection("tweets").doc(id.clickedId);
+
+    docRef.get().then((doc) => {
+      retweetMessage(doc.data().tweet);
+    });
+
+    const retweetMessage = (message) => {
+      firestore.collection("tweets").doc(id.id).set({
+        tweet: message,
+        username: initialUsername,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        commentNumber: 0,
+        retweetNumber: 0,
+        likeNumber: 0,
+        id: id.id,
+        key: id.id,
+        color: color,
+      });
+    };
+
+    docRef.update({
+      retweetNumber: retweetNumber + 1,
+    });
+  };
 
   return (
     <div className="tweet-container">
@@ -74,7 +101,10 @@ const Tweet = ({
             {commentNumber}
           </p>
           <p>
-            <FaRetweet className="tweet-icon" />
+            <FaRetweet
+              onClick={() => retweet({ id: uuidv4(), clickedId: id })}
+              className="tweet-icon"
+            />
             {retweetNumber}
           </p>
           <p>

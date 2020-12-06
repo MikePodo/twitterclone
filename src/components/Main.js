@@ -33,6 +33,7 @@ const Main = ({
         username: doc.username,
         timestamp: doc.timestamp,
         likeNumber: doc.likeNumber,
+        retweetNumber: doc.retweetNumber,
         id: doc.id,
         key: doc.key,
         color: doc.color,
@@ -132,6 +133,7 @@ const Main = ({
           setTweetList={setTweetList}
           tweetList={tweetList}
           username={tweet.username}
+          initialUsername={username}
           timestamp={tweet.timestamp}
           color={{ backgroundColor: tweet.color }}
           commentNumber={tweet.commentNumber}
