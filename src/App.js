@@ -10,6 +10,7 @@ function App() {
   const [colorPicker, setColorPicker] = useState({
     background: "#237480",
   });
+  const [initialColor, setInitialColor] = useState("");
   return (
     <div className="App">
       {loggedIn ? (
@@ -18,6 +19,7 @@ function App() {
           loggedIn={loggedIn}
           setLoggedIn={setLoggedIn}
           colorPicker={colorPicker}
+          initialColor={initialColor}
         />
       ) : (
         <LoginUser
@@ -27,6 +29,8 @@ function App() {
           setUsername={setUsername}
           loggedIn={loggedIn}
           setLoggedIn={setLoggedIn}
+          initialColor={initialColor}
+          setInitialColor={setInitialColor}
         />
       )}
     </div>

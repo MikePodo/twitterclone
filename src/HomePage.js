@@ -6,7 +6,13 @@ import Main from "./components/Main";
 import Right from "./components/Right";
 import Username from "./components/Username";
 
-const HomePage = ({ username, loggedIn, setLoggedIn, colorPicker }) => {
+const HomePage = ({
+  username,
+  loggedIn,
+  setLoggedIn,
+  colorPicker,
+  initialColor,
+}) => {
   const tweetInput = useRef();
   const tweetButton = useRef();
   const [leftStatus, setLeftStatus] = useState(false);
@@ -44,6 +50,7 @@ const HomePage = ({ username, loggedIn, setLoggedIn, colorPicker }) => {
         setRightStatus={setRightStatus}
         tweetList={tweetList}
         setTweetList={setTweetList}
+        initialColor={initialColor}
       />
       <Right rightStatus={rightStatus} setRightStatus={setRightStatus} />
     </div>

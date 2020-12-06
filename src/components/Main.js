@@ -20,6 +20,7 @@ const Main = ({
   tweetButton,
   username,
   colorPicker,
+  initialColor,
 }) => {
   //state
 
@@ -37,6 +38,7 @@ const Main = ({
         id: doc.id,
         key: doc.key,
         color: doc.color,
+        retweet: doc.retweeted,
 
         ...doc.data(),
       }));
@@ -63,6 +65,7 @@ const Main = ({
         id: id.id,
         key: id.id,
         color: colorPicker.background,
+        retweeted: false,
       });
 
       tweetInput.current.value = "";
@@ -134,6 +137,7 @@ const Main = ({
           tweetList={tweetList}
           username={tweet.username}
           initialUsername={username}
+          initialColor={initialColor}
           timestamp={tweet.timestamp}
           color={{ backgroundColor: tweet.color }}
           commentNumber={tweet.commentNumber}
@@ -142,6 +146,7 @@ const Main = ({
           tweet={tweet.tweet}
           id={tweet.id}
           key={tweet.key}
+          retweeted={tweet.retweeted}
         />
       ))}
     </div>

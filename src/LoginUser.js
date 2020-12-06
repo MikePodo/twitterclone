@@ -8,6 +8,8 @@ const LoginUser = ({
   setUsername,
   colorPicker,
   setColorPicker,
+  initialColor,
+  setInitialColor,
 }) => {
   const [activateColorPicker, setActivateColorPicker] = useState(false);
 
@@ -32,7 +34,7 @@ const LoginUser = ({
     setColorPicker({
       background: color.hex,
     });
-    console.log(colorPicker);
+    setInitialColor(color.hex);
   };
 
   const setLoginTrue = () => {

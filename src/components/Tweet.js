@@ -19,7 +19,11 @@ const Tweet = ({
   tweetList,
   setTweetList,
   initialUsername,
+  initialColor,
+  retweeted,
 }) => {
+  console.log(initialColor);
+
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -55,14 +59,15 @@ const Tweet = ({
     const retweetMessage = (message) => {
       firestore.collection("tweets").doc(id.id).set({
         tweet: message,
-        username: initialUsername,
+        username: username,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         commentNumber: 0,
         retweetNumber: 0,
         likeNumber: 0,
         id: id.id,
         key: id.id,
-        color: color,
+        color: initialColor,
+        retweeted: true,
       });
     };
 
@@ -75,19 +80,29 @@ const Tweet = ({
     <div className="tweet-container">
       <div className="tweet">
         <div className="user">
-          <div style={color} className="profile-pic-tweet"></div>
-          <h3>{username ? username : "User"}</h3>
-          <h4>@{username ? username.toLowerCase() : "user"}</h4>
-          <p>•</p>
-          <p>
-            {timestamp ? (
-              <ReactTimeAgo
-                date={timestamp.toDate()}
-                locale="en-US"
-                timeStyle="twitter"
-              />
+          <div className="retweet-user">
+            {retweeted ? (
+              <h3>
+                <FaRetweet className="tweet-icon" />
+                {initialUsername} Retweeted
+              </h3>
             ) : null}
-          </p>
+          </div>
+          <div className="original-tweet-user">
+            <div style={color} className="profile-pic-tweet"></div>
+            <h3>{username}</h3>
+            <h4>@{username.toLowerCase()}</h4>
+            <p>•</p>
+            <p>
+              {timestamp ? (
+                <ReactTimeAgo
+                  date={timestamp.toDate()}
+                  locale="en-US"
+                  timeStyle="twitter"
+                />
+              ) : null}
+            </p>
+          </div>
         </div>
         <div className="tweet-content">
           <p>{tweet}</p>
