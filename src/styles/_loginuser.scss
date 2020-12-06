@@ -41,6 +41,50 @@
   }
 }
 
+.sketch-picker {
+  width: 400px !important;
+}
+
 .saturation-black:hover {
   cursor: pointer;
+}
+
+.flexbox-fix {
+  padding: 0.5rem 0rem !important;
+  label {
+    display: none !important;
+  }
+}
+
+.flexbox-fix {
+  div {
+    height: 30px !important;
+    overflow: all !important;
+  }
+}
+
+.hue-horizontal:hover {
+  cursor: pointer;
+}
+
+.color-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: rgb(31, 167, 230);
+  }
+}
+
+#rc-editable-input-2 {
+  display: none !important;
+}
+#rc-editable-input-4 {
+  display: none !important;
+}
+#rc-editable-input-6 {
+  display: none !important;
+}
+#rc-editable-input-8 {
+  display: none !important;
 }

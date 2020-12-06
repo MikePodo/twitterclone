@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { SketchPicker } from "react-color";
 
 const LoginUser = ({
@@ -9,13 +9,15 @@ const LoginUser = ({
   colorPicker,
   setColorPicker,
 }) => {
+  const [activateColorPicker, setActivateColorPicker] = useState(false);
+
   const loginInput = useRef();
 
   const loginHandler = () => {
     if (loginInput.current.value === "") {
       console.log("error");
     } else {
-      setLoggedIn(true);
+      setActivateColorPicker(true);
       setUsername(loginInput.current.value);
     }
   };
@@ -33,21 +35,34 @@ const LoginUser = ({
     console.log(colorPicker);
   };
 
-  return (
+  const setLoginTrue = () => {
+    setLoggedIn(true);
+  };
+
+  return activateColorPicker ? (
+    <div className="loginuser">
+      <div className="color-container">
+        <h1>Choose a color:</h1>
+        <SketchPicker
+          disableAlpha={true}
+          color={colorPicker.background}
+          onChange={handleColorChange}
+          className="colorpicker"
+        />
+        <button onClick={setLoginTrue} className="go">
+          Go
+        </button>
+      </div>
+    </div>
+  ) : (
     <div className="loginuser">
       <div className="loginbox">
         <h1>Enter Username:</h1>
         <input onKeyPress={clickHandler} ref={loginInput} type="textarea" />
         <button onClick={loginHandler} className="go">
-          Go
+          Next
         </button>
       </div>
-      <SketchPicker
-        disableAlpha={true}
-        color={colorPicker.background}
-        onChange={handleColorChange}
-        className="colorpicker"
-      />
     </div>
   );
 };
