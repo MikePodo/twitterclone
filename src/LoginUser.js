@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { SketchPicker } from "react-color";
+import { CirclePicker } from "react-color";
 
 const LoginUser = ({
   loggedIn,
@@ -45,7 +45,7 @@ const LoginUser = ({
     <div className="loginuser">
       <div className="color-container">
         <h1>Choose a color:</h1>
-        <SketchPicker
+        <CirclePicker
           disableAlpha={true}
           color={colorPicker.background}
           onChange={handleColorChange}
