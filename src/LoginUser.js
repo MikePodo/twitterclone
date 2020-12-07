@@ -46,6 +46,26 @@ const LoginUser = ({
       <div className="color-container">
         <h1>Choose a color:</h1>
         <CirclePicker
+          colors={[
+            "#cc0e00",
+            "#f0578a",
+            "#9c27b0",
+            "#5d30ac",
+            "#273dbb",
+            "#1495ff",
+            "#8df2ff",
+            "#00bcd4",
+            "#009689",
+            "#36c23a",
+            "#93a021",
+            "#426918",
+            "#ffeb3b",
+            "#ffc107",
+            "#ff9800",
+            "#795548",
+            "#607d8b",
+            "#000000",
+          ]}
           disableAlpha={true}
           color={colorPicker.background}
           onChange={handleColorChange}
