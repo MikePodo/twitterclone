@@ -91,6 +91,10 @@
     pointer-events: all;
   }
 
+  .x-icon {
+    display: block;
+  }
+
   @keyframes slide-right {
     0% {
       transform: translateX(100%);
