@@ -39,6 +39,7 @@ const Main = ({
         key: doc.key,
         color: doc.color,
         retweet: doc.retweeted,
+        initialUsername: doc.initialUsername,
 
         ...doc.data(),
       }));
@@ -137,6 +138,7 @@ const Main = ({
           tweetList={tweetList}
           username={tweet.username}
           initialUsername={username}
+          retweetInitialUsername={tweet.initialUsername}
           initialColor={initialColor}
           timestamp={tweet.timestamp}
           color={{ backgroundColor: tweet.color }}

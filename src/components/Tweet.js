@@ -21,9 +21,8 @@ const Tweet = ({
   initialUsername,
   initialColor,
   retweeted,
+  retweetInitialUsername,
 }) => {
-  console.log(initialColor);
-
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -68,6 +67,7 @@ const Tweet = ({
         key: id.id,
         color: initialColor,
         retweeted: true,
+        initialUsername: initialUsername,
       });
     };
 
@@ -84,7 +84,7 @@ const Tweet = ({
             {retweeted ? (
               <h3>
                 <FaRetweet className="tweet-icon" />
-                {initialUsername} Retweeted
+                {retweetInitialUsername} Retweeted
               </h3>
             ) : null}
           </div>
