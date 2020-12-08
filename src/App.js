@@ -3,6 +3,9 @@ import "./styles/app.scss";
 //Components
 import HomePage from "./HomePage";
 import LoginUser from "./LoginUser";
+//Animations
+import { motion, AnimatePresence } from "framer-motion";
+import { slideRight } from "./animation";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -13,26 +16,46 @@ function App() {
   const [initialColor, setInitialColor] = useState("");
   return (
     <div className="App">
-      {loggedIn ? (
-        <HomePage
-          username={username}
-          loggedIn={loggedIn}
-          setLoggedIn={setLoggedIn}
-          colorPicker={colorPicker}
-          initialColor={initialColor}
-        />
-      ) : (
-        <LoginUser
-          colorPicker={colorPicker}
-          setColorPicker={setColorPicker}
-          username={username}
-          setUsername={setUsername}
-          loggedIn={loggedIn}
-          setLoggedIn={setLoggedIn}
-          initialColor={initialColor}
-          setInitialColor={setInitialColor}
-        />
-      )}
+      <AnimatePresence exitBeforeEnter>
+        {loggedIn ? (
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{
+              y: "0%",
+              transition: { duration: 0.15, ease: "easeOut" },
+            }}
+            exit="exit"
+            key="homepage"
+          >
+            <HomePage
+              username={username}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              colorPicker={colorPicker}
+              initialColor={initialColor}
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            variants={slideRight}
+            initial="hide"
+            animate="show"
+            exit="exit"
+            key="page2"
+          >
+            <LoginUser
+              colorPicker={colorPicker}
+              setColorPicker={setColorPicker}
+              username={username}
+              setUsername={setUsername}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              initialColor={initialColor}
+              setInitialColor={setInitialColor}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
