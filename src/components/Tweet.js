@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 import { RiChat3Line, RiUpload2Line } from "react-icons/ri";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
+//Animation
+import { motion } from "framer-motion";
 
 const Tweet = ({
   tweet,
@@ -77,8 +79,8 @@ const Tweet = ({
   };
 
   return (
-    <div className="tweet-container">
-      <div className="tweet">
+    <motion.div layout className="tweet-container">
+      <motion.div layout className="tweet">
         <div className="user">
           <div className="retweet-user">
             {retweeted ? (
@@ -131,8 +133,8 @@ const Tweet = ({
             <RiUpload2Line className="tweet-icon" />
           </p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

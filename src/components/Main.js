@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { v4 as uuidv4 } from "uuid";
+import { AnimateSharedLayout } from "framer-motion";
 
 //Component
 import Tweet from "./Tweet";
@@ -132,25 +133,27 @@ const Main = ({
         </div>
       </div>
       <div className="gap"></div>
-      {tweetList.map((tweet) => (
-        <Tweet
-          setTweetList={setTweetList}
-          tweetList={tweetList}
-          username={tweet.username}
-          initialUsername={username}
-          retweetInitialUsername={tweet.initialUsername}
-          initialColor={initialColor}
-          timestamp={tweet.timestamp}
-          color={{ backgroundColor: tweet.color }}
-          commentNumber={tweet.commentNumber}
-          retweetNumber={tweet.retweetNumber}
-          likeNumber={tweet.likeNumber}
-          tweet={tweet.tweet}
-          id={tweet.id}
-          key={tweet.key}
-          retweeted={tweet.retweeted}
-        />
-      ))}
+      <AnimateSharedLayout>
+        {tweetList.map((tweet) => (
+          <Tweet
+            setTweetList={setTweetList}
+            tweetList={tweetList}
+            username={tweet.username}
+            initialUsername={username}
+            retweetInitialUsername={tweet.initialUsername}
+            initialColor={initialColor}
+            timestamp={tweet.timestamp}
+            color={{ backgroundColor: tweet.color }}
+            commentNumber={tweet.commentNumber}
+            retweetNumber={tweet.retweetNumber}
+            likeNumber={tweet.likeNumber}
+            tweet={tweet.tweet}
+            id={tweet.id}
+            key={tweet.key}
+            retweeted={tweet.retweeted}
+          />
+        ))}
+      </AnimateSharedLayout>
     </div>
   );
 };
