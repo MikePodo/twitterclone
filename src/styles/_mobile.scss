@@ -168,7 +168,8 @@
     flex: 1;
   }
   .main-disabled {
-    display: none;
+    pointer-events: none;
+    visibility: hidden;
   }
   .twitter-button {
     width: 50%;
@@ -194,6 +195,7 @@
   .nav {
     font-size: 120%;
   }
+
   .happening-right-img {
     display: block;
   }

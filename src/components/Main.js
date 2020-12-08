@@ -80,82 +80,93 @@ const Main = ({
     }
   };
 
-  return (
-    <div className={`${leftStatus || rightStatus ? "main-disabled" : "main"}`}>
-      <div className="header-nav">
-        <div onClick={() => setLeftStatus(!leftStatus)} className="nav-divs">
-          <div className="nav-div"></div>
-          <div className="nav-div"></div>
-          <div className="nav-div"></div>
-        </div>
-        <h1>Home</h1>
-        <div
-          onClick={() => setRightStatus(!rightStatus)}
-          className="open-search"
-        >
-          Explore &gt;
-        </div>
-      </div>
-      <div className="whats-happening">
-        <div className="whats-happening-top">
-          <div className="userinput">
-            <div style={colorPicker} className="profile-pic-main"></div>
+  const showPage = () => {
+    if (leftStatus || rightStatus) {
+      return "";
+    } else {
+      return (
+        <div className="main">
+          <div className="header-nav">
+            <div
+              onClick={() => setLeftStatus(!leftStatus)}
+              className="nav-divs"
+            >
+              <div className="nav-div"></div>
+              <div className="nav-div"></div>
+              <div className="nav-div"></div>
+            </div>
+            <h1>Home</h1>
+            <div
+              onClick={() => setRightStatus(!rightStatus)}
+              className="open-search"
+            >
+              Explore &gt;
+            </div>
+          </div>
+          <div className="whats-happening">
+            <div className="whats-happening-top">
+              <div className="userinput">
+                <div style={colorPicker} className="profile-pic-main"></div>
 
-            <input
-              placeholder="What's happening?"
-              className="happening-textarea"
-              type="textarea"
-              ref={tweetInput}
-              onKeyPress={enterHandler}
-            ></input>
-          </div>
+                <input
+                  placeholder="What's happening?"
+                  className="happening-textarea"
+                  type="textarea"
+                  ref={tweetInput}
+                  onKeyPress={enterHandler}
+                ></input>
+              </div>
 
-          <div className="tweet-error">
-            <p className={tweetError ? "tweet-error-message" : ""}>
-              {tweetError ? "*Please type a tweet*" : ""}
-            </p>
+              <div className="tweet-error">
+                <p className={tweetError ? "tweet-error-message" : ""}>
+                  {tweetError ? "*Please type a tweet*" : ""}
+                </p>
+              </div>
+            </div>
+            <div className="whats-happening-bottom">
+              <div className="happening-icons">
+                <HiOutlinePhotograph className="happening-icon" />
+                <RiFileGifLine className="happening-icon" />
+                <BiPoll className="happening-icon" />
+                <BiSmile className="happening-icon" />
+                <AiOutlineCalendar className="happening-icon" />
+              </div>
+              <button
+                ref={tweetButton}
+                onClick={() => tweetHandler({ id: uuidv4() })}
+              >
+                Tweet
+              </button>
+            </div>
           </div>
+          <div className="gap"></div>
+          <AnimateSharedLayout>
+            {tweetList.map((tweet) => (
+              <Tweet
+                setTweetList={setTweetList}
+                tweetList={tweetList}
+                username={tweet.username}
+                initialUsername={username}
+                retweetInitialUsername={tweet.initialUsername}
+                initialColor={initialColor}
+                timestamp={tweet.timestamp}
+                color={{ backgroundColor: tweet.color }}
+                commentNumber={tweet.commentNumber}
+                retweetNumber={tweet.retweetNumber}
+                likeNumber={tweet.likeNumber}
+                tweet={tweet.tweet}
+                id={tweet.id}
+                key={tweet.key}
+                retweeted={tweet.retweeted}
+              />
+            ))}
+          </AnimateSharedLayout>
         </div>
-        <div className="whats-happening-bottom">
-          <div className="happening-icons">
-            <HiOutlinePhotograph className="happening-icon" />
-            <RiFileGifLine className="happening-icon" />
-            <BiPoll className="happening-icon" />
-            <BiSmile className="happening-icon" />
-            <AiOutlineCalendar className="happening-icon" />
-          </div>
-          <button
-            ref={tweetButton}
-            onClick={() => tweetHandler({ id: uuidv4() })}
-          >
-            Tweet
-          </button>
-        </div>
-      </div>
-      <div className="gap"></div>
-      <AnimateSharedLayout>
-        {tweetList.map((tweet) => (
-          <Tweet
-            setTweetList={setTweetList}
-            tweetList={tweetList}
-            username={tweet.username}
-            initialUsername={username}
-            retweetInitialUsername={tweet.initialUsername}
-            initialColor={initialColor}
-            timestamp={tweet.timestamp}
-            color={{ backgroundColor: tweet.color }}
-            commentNumber={tweet.commentNumber}
-            retweetNumber={tweet.retweetNumber}
-            likeNumber={tweet.likeNumber}
-            tweet={tweet.tweet}
-            id={tweet.id}
-            key={tweet.key}
-            retweeted={tweet.retweeted}
-          />
-        ))}
-      </AnimateSharedLayout>
-    </div>
-  );
+      );
+    }
+  };
+
+  return <>{showPage()}</>;
 };
 
 export default Main;
