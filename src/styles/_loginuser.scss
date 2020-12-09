@@ -25,6 +25,15 @@
     font-size: 1.5rem;
     border: none;
     border: 1px solid rgb(31, 167, 230);
+    transition: all 0.1s ease;
+  }
+  input:hover {
+    transform: scale(1.03);
+    transition: all 0.1s ease;
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid rgb(31, 167, 230);
   }
 }
 
@@ -36,8 +45,10 @@
   background: rgb(31, 167, 230);
   color: white;
   cursor: pointer;
+  transition: all 0.1s ease;
   &:hover {
     background: rgb(28, 145, 199);
+    transform: scale(1.03);
   }
 }
 

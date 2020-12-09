@@ -129,7 +129,7 @@ const Right = ({ rightStatus, setRightStatus, tweetList, setTweetList }) => {
           <p>Cookie Policy</p>
           <p>Ads info</p>
           <p>More...</p>
-          <p>&copy; 2020 Twitter, Inc.</p>
+          <p>&copy; 2020 Mike Podolsky</p>
         </div>
       </div>
     </div>
