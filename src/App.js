@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles/app.scss";
 //Components
 import HomePage from "./HomePage";
+
 import LoginUser from "./LoginUser";
 //Animations
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,23 +19,13 @@ function App() {
     <div className="App">
       <AnimatePresence exitBeforeEnter>
         {loggedIn ? (
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{
-              y: "0%",
-              transition: { duration: 0.15, ease: "easeOut" },
-            }}
-            exit="exit"
-            key="homepage"
-          >
-            <HomePage
-              username={username}
-              loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              colorPicker={colorPicker}
-              initialColor={initialColor}
-            />
-          </motion.div>
+          <HomePage
+            username={username}
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            colorPicker={colorPicker}
+            initialColor={initialColor}
+          />
         ) : (
           <motion.div
             variants={slideRight}
